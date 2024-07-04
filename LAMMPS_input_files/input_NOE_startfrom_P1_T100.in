@@ -1,0 +1,69 @@
+#created by G. Lauffer
+# Input file starts from a P= 1atm equilibrated file for NOE. This input file includes rdf calculations.
+# This input file was modified for different Temp & Pres
+
+# Define variables for temperature and pressure
+variable        T equal 100.0
+variable        P equal 1.0
+
+read_restart	restart_T${T}_P${P}_NOE.equil
+
+pair_style      hybrid lj/charmm/coul/long 15.2 15.3 buck/coul/long 15.2 15.3
+
+kspace_style    ewald/disp 1.0e-4
+kspace_modify   force/disp/real 1e-4
+kspace_modify   force/disp/kspace 1e-3
+kspace_modify   diff ik
+
+include         paircoeff_NOE
+
+timestep        1
+
+thermo_style    custom step time etotal pe ke temp press vol lx ly lz
+thermo          1000
+
+# Define the relevant groups to be studied: PbIN, cage= PbI, oc= organic cation, hydr= all H atoms
+group 		PbIN type 1 2 3
+group		cage type 1 2
+group		oc type 3 4 5 6 7 8 9
+group 		hydr type 10 11 12 13 14 15
+
+# Compute and output pressure, temperature, and radial distribution func
+compute		output_pressure all pressure thermo_temp
+compute		output_temp all temp
+compute 	rdf_cage all rdf 300 1 2
+compute 	rdf_IN all rdf 300 2 3
+compute 	rdf_NC all rdf 300 3 4
+compute 	rdf_IH all rdf 300 2 13
+
+# Variables for box dimensions
+#variable lx equal lx
+#variable ly equal ly
+#variable lz equal lz
+
+# Continue equilibration in NPT ensemble
+fix             1 all npt temp ${T} ${T} 100.0 aniso ${P} ${P} 1000.0
+
+# Outputs for pressure, temperature, and rdf
+fix             2 all ave/time 1 100 100 c_output_pressure file fix_compute_pressure_P${P}.txt
+fix             3 all ave/time 1 100 100 c_output_temp file fix_compute_temp_T${T}.txt
+
+fix 		4 all ave/time 1 100 100 c_rdf_cage[*] file rdf_PbI_P${P}_T${T}.txt mode vector
+fix 		5 all ave/time 1 100 100 c_rdf_IN[*] file rdf_IN_P${P}_T${T}.txt mode vector
+fix 		6 all ave/time 1 100 100 c_rdf_NC[*] file rdf_NC_P${P}_T${T}.txt mode vector
+fix 		7 all ave/time 1 100 100 c_rdf_IH[*] file rdf_IH_P${P}_T${T}.txt mode vector
+
+# Outputs for box dimensions
+#fix             8 all ave/time 1 100 100 v_lx v_ly v_lz file fix_compute_box_test.txt
+
+run		30000
+
+unfix 		1
+unfix 		2
+unfix 		3 
+unfix 		4 
+unfix 		5 
+unfix 		6 
+unfix 		7
+  
+

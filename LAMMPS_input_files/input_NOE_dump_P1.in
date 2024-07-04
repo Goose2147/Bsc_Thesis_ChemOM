@@ -1,0 +1,60 @@
+# Created by G. Lauffer
+# This input file restarts from a equilibrated state (T, P) and continues with dumping.
+# This input file was modified for different Temp & Pres
+
+# Define variables for temperature and pressure
+variable        T equal 100.0
+variable        P equal 1.0
+
+read_restart	restart_T${T}_P${P}_NOE.equil
+
+pair_style      hybrid lj/charmm/coul/long 15.2 15.3 buck/coul/long 15.2 15.3
+
+kspace_style    ewald/disp 1.0e-4
+kspace_modify   force/disp/real 1e-4
+kspace_modify   force/disp/kspace 1e-3
+kspace_modify   diff ik
+
+include         paircoeff_NOE
+
+timestep        1
+
+thermo_style    custom step time etotal pe ke temp press vol lx ly lz
+thermo          1000
+
+# Define the relevant groups to be studied: PbIN, cage= PbI, oc= organic cation, hydr= all H atoms
+group 		PbIN type 1 2 3
+group		cage type 1 2
+group		oc type 3 4 5 6 7 8 9
+group 		hydr type 10 11 12 13 14 15
+
+# Continue equilibration in NPT ensemble and dump info to files
+
+fix             1 all npt temp ${T} ${T} 100.0 aniso ${P} ${P} 1000.0
+
+dump            mydump1 all custom 1000 NOE_all_T${T}_P${P}.lammpstrj id mol type element x y z xu yu zu vx vy vz
+dump_modify	mydump1 element Pb I N O C C C C C C C C C C C C H H H H H H H H H H
+dump_modify     mydump1 sort 1
+
+dump 		mydump2 cage custom 200 NOE_cage_T${T}_P${P}.lammpstrj id mol type element x y z xu yu zu vx vy vz
+dump_modify     mydump2 element Pb I N O C C C C C C C C C C C C H H H H H H H H H H
+dump_modify 	mydump2 sort 1
+
+dump 		mydump3 oc custom 100 NOE_oc_T${T}_P${P}.lammpstrj id mol type element x y z xu yu zu vx vy vz
+dump_modify     mydump3 element Pb I N O C C C C C C C C C C C C H H H H H H H H H H
+dump_modify     mydump3 sort 1
+
+# Dump file needed for the Penetration Depth calculation 
+dump 		mydumpPD PbIN custom 500 NOE_PenDep_T${T}_P${P}.dump id mol type element x y z xu yu zu vx vy vz
+dump_modify 	mydumpPD element Pb I N O C C C C C C C C C C C C H H H H H H H H H H
+dump_modify 	mydumpPD sort 1
+
+# XYZ file needed for TRAVIS. Not possible for velocities
+dump 		mydumpXYZ cage xyz 200 NOE_cage_T${T}_P${P}_travis.xyz
+dump_modify 	mydumpXYZ element Pb I N O C C C C C C C C C C C C H H H H H H H H H H
+dump_modify 	mydumpXYZ sort 1
+
+run             70000
+write_restart	restart_afterdump_T${T}_P${P}_NOE.equil
+unfix 		1
+
