@@ -1,0 +1,189 @@
+# OPLS potential
+# write_lammpsWed Jul  3 16:26:22 2024
+# bonds
+bond_style      harmonic
+bond_coeff      1 403.0 1.04 # N1-H1
+bond_coeff      2 200.0 1.48 # N1-C12
+bond_coeff      3 360.0 1.415 # O1-C11
+bond_coeff      4 230.0 1.382 # O1-C1
+bond_coeff      5 305.0 1.375 # C1-C2
+bond_coeff      6 305.0 1.375 # C1-C10
+bond_coeff      7 305.0 1.375 # C5-C10
+bond_coeff      8 305.0 1.375 # C9-C10
+bond_coeff      9 340.0 1.08 # C9-H8
+bond_coeff     10 305.0 1.375 # C8-C9
+bond_coeff     11 305.0 1.375 # C7-C8
+bond_coeff     12 340.0 1.08 # C8-H7
+bond_coeff     13 305.0 1.375 # C6-C7
+bond_coeff     14 340.0 1.08 # C7-H6
+bond_coeff     15 305.0 1.375 # C5-C6
+bond_coeff     16 340.0 1.08 # C6-H5
+bond_coeff     17 305.0 1.375 # C4-C5
+bond_coeff     18 305.0 1.375 # C3-C4
+bond_coeff     19 340.0 1.08 # C4-H4
+bond_coeff     20 305.0 1.375 # C2-C3
+bond_coeff     21 340.0 1.08 # C3-H3
+bond_coeff     22 340.0 1.08 # C2-H2
+bond_coeff     23 309.0 1.111 # C11-H9
+bond_coeff     24 222.5 1.53 # C11-C12
+bond_coeff     25 284.5 1.1 # C12-H10
+
+# angles
+angle_style      harmonic
+angle_coeff      1 44.0 109.5 # H1-N1-H1
+angle_coeff      2 30.0 109.5 # H1-N1-C12
+angle_coeff      3 65.0 108.0 # C1-O1-C11
+angle_coeff      4 40.0 120.0 # C2-C1-C10
+angle_coeff      5 110.0 120.0 # O1-C1-C2
+angle_coeff      6 110.0 120.0 # O1-C1-C10
+angle_coeff      7 40.0 120.0 # C5-C10-C9
+angle_coeff      8 40.0 120.0 # C1-C10-C5
+angle_coeff      9 40.0 120.0 # C1-C10-C9
+angle_coeff     10 30.0 120.0 # C8-C9-H8
+angle_coeff     11 30.0 120.0 # H8-C9-C10
+angle_coeff     12 40.0 120.0 # C8-C9-C10
+angle_coeff     13 30.0 120.0 # C7-C8-H7
+angle_coeff     14 40.0 120.0 # C7-C8-C9
+angle_coeff     15 30.0 120.0 # H7-C8-C9
+angle_coeff     16 30.0 120.0 # C6-C7-H6
+angle_coeff     17 40.0 120.0 # C6-C7-C8
+angle_coeff     18 30.0 120.0 # H6-C7-C8
+angle_coeff     19 30.0 120.0 # C5-C6-H5
+angle_coeff     20 40.0 120.0 # C5-C6-C7
+angle_coeff     21 30.0 120.0 # H5-C6-C7
+angle_coeff     22 40.0 120.0 # C4-C5-C10
+angle_coeff     23 40.0 120.0 # C6-C5-C10
+angle_coeff     24 40.0 120.0 # C4-C5-C6
+angle_coeff     25 30.0 120.0 # C3-C4-H4
+angle_coeff     26 40.0 120.0 # C3-C4-C5
+angle_coeff     27 30.0 120.0 # H4-C4-C5
+angle_coeff     28 30.0 120.0 # C2-C3-H3
+angle_coeff     29 40.0 120.0 # C2-C3-C4
+angle_coeff     30 30.0 120.0 # H3-C3-C4
+angle_coeff     31 30.0 120.0 # C1-C2-H2
+angle_coeff     32 40.0 120.0 # C1-C2-C3
+angle_coeff     33 30.0 120.0 # H2-C2-C3
+angle_coeff     34 35.5 109.0 # H9-C11-H9
+angle_coeff     35 26.5 110.1 # H9-C11-C12
+angle_coeff     36 45.9 108.89 # O1-C11-H9
+angle_coeff     37 50.0 106.5 # O1-C11-C12
+angle_coeff     38 35.5 109.0 # H10-C12-H10
+angle_coeff     39 45.0 107.5 # N1-C12-H10
+angle_coeff     40 67.7 110.0 # N1-C12-C11
+angle_coeff     41 26.5 111.8 # C11-C12-H10
+
+# dihedrals
+dihedral_style      opls
+dihedral_coeff      1 0.1 3.0 0.0 # H1-N1-C12-H10
+dihedral_coeff      2 0.1 3.0 0.0 # H1-N1-C12-C11
+dihedral_coeff      3 1.62 2.0 180.0 # C11-O1-C1-C2
+dihedral_coeff      4 1.62 2.0 180.0 # C11-O1-C1-C10
+dihedral_coeff      5 0.095 3.0 0.0 # C1-O1-C11-H9
+dihedral_coeff      6 0.24 1.0 0.0 # C1-O1-C11-C12
+dihedral_coeff      7 3.1 2.0 180.0 # C2-C1-C10-C5
+dihedral_coeff      8 3.1 2.0 180.0 # C2-C1-C10-C9
+dihedral_coeff      9 4.2 2.0 180.0 # C10-C1-C2-H2
+dihedral_coeff     10 3.1 2.0 180.0 # C10-C1-C2-C3
+dihedral_coeff     11 2.4 2.0 180.0 # O1-C1-C2-H2
+dihedral_coeff     12 3.1 2.0 180.0 # O1-C1-C2-C3
+dihedral_coeff     13 3.1 2.0 180.0 # O1-C1-C10-C5
+dihedral_coeff     14 3.1 2.0 180.0 # O1-C1-C10-C9
+dihedral_coeff     15 4.2 2.0 180.0 # H8-C9-C10-C5
+dihedral_coeff     16 3.1 2.0 180.0 # C8-C9-C10-C5
+dihedral_coeff     17 3.1 2.0 180.0 # C4-C5-C10-C9
+dihedral_coeff     18 3.1 2.0 180.0 # C6-C5-C10-C9
+dihedral_coeff     19 3.1 2.0 180.0 # C4-C5-C10-C1
+dihedral_coeff     20 3.1 2.0 180.0 # C6-C5-C10-C1
+dihedral_coeff     21 4.2 2.0 180.0 # H8-C9-C10-C1
+dihedral_coeff     22 3.1 2.0 180.0 # C8-C9-C10-C1
+dihedral_coeff     23 4.2 2.0 180.0 # C7-C8-C9-H8
+dihedral_coeff     24 2.4 2.0 180.0 # H7-C8-C9-H8
+dihedral_coeff     25 3.1 2.0 180.0 # C7-C8-C9-C10
+dihedral_coeff     26 4.2 2.0 180.0 # H7-C8-C9-C10
+dihedral_coeff     27 4.2 2.0 180.0 # C6-C7-C8-H7
+dihedral_coeff     28 2.4 2.0 180.0 # H6-C7-C8-H7
+dihedral_coeff     29 3.1 2.0 180.0 # C6-C7-C8-C9
+dihedral_coeff     30 4.2 2.0 180.0 # H6-C7-C8-C9
+dihedral_coeff     31 4.2 2.0 180.0 # C5-C6-C7-H6
+dihedral_coeff     32 2.4 2.0 180.0 # H5-C6-C7-H6
+dihedral_coeff     33 3.1 2.0 180.0 # C5-C6-C7-C8
+dihedral_coeff     34 4.2 2.0 180.0 # H5-C6-C7-C8
+dihedral_coeff     35 4.2 2.0 180.0 # C4-C5-C6-H5
+dihedral_coeff     36 4.2 2.0 180.0 # C10-C5-C6-H5
+dihedral_coeff     37 3.1 2.0 180.0 # C4-C5-C6-C7
+dihedral_coeff     38 3.1 2.0 180.0 # C10-C5-C6-C7
+dihedral_coeff     39 3.1 2.0 180.0 # C3-C4-C5-C10
+dihedral_coeff     40 4.2 2.0 180.0 # H4-C4-C5-C10
+dihedral_coeff     41 3.1 2.0 180.0 # C3-C4-C5-C6
+dihedral_coeff     42 4.2 2.0 180.0 # H4-C4-C5-C6
+dihedral_coeff     43 4.2 2.0 180.0 # C2-C3-C4-H4
+dihedral_coeff     44 2.4 2.0 180.0 # H3-C3-C4-H4
+dihedral_coeff     45 3.1 2.0 180.0 # C2-C3-C4-C5
+dihedral_coeff     46 4.2 2.0 180.0 # H3-C3-C4-C5
+dihedral_coeff     47 2.4 2.0 180.0 # H2-C2-C3-H3
+dihedral_coeff     48 4.2 2.0 180.0 # C1-C2-C3-H3
+dihedral_coeff     49 4.2 2.0 180.0 # H2-C2-C3-C4
+dihedral_coeff     50 3.1 2.0 180.0 # C1-C2-C3-C4
+dihedral_coeff     51 0.195 3.0 0.0 # H9-C11-C12-H10
+dihedral_coeff     52 0.195 3.0 0.0 # H9-C11-C12-N1
+dihedral_coeff     53 0.195 3.0 0.0 # O1-C11-C12-H10
+dihedral_coeff     54 0.7 1.0 180.0 # O1-C11-C12-N1
+
+# L-J parameters
+pair_style lj/cut/coul/long 10.0 7.4 # consider changing these parameters
+special_bonds lj/coul 0.0 0.0 0.5
+pair_coeff 1 1 0.0 0.0 # P1
+pair_coeff 2 2 0.0 0.0 # I1
+pair_coeff 3 3 -0.2 1.85 # N1
+pair_coeff 4 4 -0.1 1.65 # O1
+pair_coeff 5 5 -0.07 1.9924 # C1
+pair_coeff 6 6 -0.07 1.9924 # C10
+pair_coeff 7 7 -0.07 1.9924 # C9
+pair_coeff 8 8 -0.07 1.9924 # C8
+pair_coeff 9 9 -0.07 1.9924 # C7
+pair_coeff 10 10 -0.07 1.9924 # C6
+pair_coeff 11 11 -0.07 1.9924 # C5
+pair_coeff 12 12 -0.07 1.9924 # C4
+pair_coeff 13 13 -0.07 1.9924 # C3
+pair_coeff 14 14 -0.07 1.9924 # C2
+pair_coeff 15 15 -0.056 2.01 # C11
+pair_coeff 16 16 -0.055 2.175 # C12
+pair_coeff 17 17 -0.046 0.2245 # H1
+pair_coeff 18 18 -0.03 1.3582 # H8
+pair_coeff 19 19 -0.03 1.3582 # H7
+pair_coeff 20 20 -0.03 1.3582 # H6
+pair_coeff 21 21 -0.03 1.3582 # H5
+pair_coeff 22 22 -0.03 1.3582 # H4
+pair_coeff 23 23 -0.03 1.3582 # H3
+pair_coeff 24 24 -0.03 1.3582 # H2
+pair_coeff 25 25 -0.035 1.34 # H9
+pair_coeff 26 26 -0.035 1.34 # H10
+pair_modify shift yes mix geometric
+
+# charges
+set type 1 charge 2.0 # P1
+set type 2 charge -1.0 # I1
+set type 3 charge 0.016775 # N1
+set type 4 charge -0.414098 # O1
+set type 5 charge 0.245956 # C1
+set type 6 charge -0.042618 # C10
+set type 7 charge -0.084827 # C9
+set type 8 charge -0.084815 # C8
+set type 9 charge -0.018651 # C7
+set type 10 charge -0.18538 # C6
+set type 11 charge 0.172352 # C5
+set type 12 charge -0.218838 # C4
+set type 13 charge -0.070293 # C3
+set type 14 charge -0.103146 # C2
+set type 15 charge 0.347581 # C11
+set type 16 charge -0.101407 # C12
+set type 17 charge 0.177422 # H1
+set type 18 charge 0.107468 # H8
+set type 19 charge 0.106833 # H7
+set type 20 charge 0.105208 # H6
+set type 21 charge 0.125501 # H5
+set type 22 charge 0.146409 # H4
+set type 23 charge 0.109594 # H3
+set type 24 charge 0.106676 # H2
+set type 25 charge 0.004178 # H9
+set type 26 charge 0.096549 # H10
