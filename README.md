@@ -26,8 +26,10 @@ Where A = organic spacer, M = metal (Pb in this study), X = Halide (I in this st
 5. **Use `par_fix_format.py` to create a new PAR file with the correct format.**
 
 6. **Use `modify_mol2.py` to create a new MOL2 file with the handy format.**
+   - Open this modified MOL2 file in Mercury for visualization. 
 
 7. **Use the new PAR and MOL2 files from step 6 and 7 with `combine_mol2_par.py` to create a `forase.par` file (without the charges):**
+   - This python script will use the function assign_MATCH_label. You can copy the printed library to the python script to skip the assignment process if it's run again for the same structure.
    - Symmetrical hydrogens are not repeated, but rather contained in 1 hydrogen type.
 
 8. **Obtain charges from Gaussian09​[6]​:**
