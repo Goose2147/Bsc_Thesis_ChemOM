@@ -138,8 +138,8 @@ def main(file_path, fixed_par_file):
     hydrogen_map = get_hydrogen_reduction_map(atom_names)
     
     # Use assign_MATCH_label(hydrogen_map) the first time, copy the dictionary to skip the assignment.
-    #labeled_match_atoms = assign_MATCH_label(hydrogen_map)
-    labeled_match_atoms = {'O1': 'O301', 'N1': 'N3P3', 'H1': 'HGP2', 'C1': 'C261', 'C2': 'C261', 'H2': 'HG61', 'C3': 'C261', 'H3': 'HG61', 'C4': 'C261', 'H4': 'HG61', 'C5': 'C261', 'C6': 'C261', 'H5': 'HG61', 'C7': 'C261', 'H6': 'HG61', 'C8': 'C261', 'H7': 'HG61', 'C9': 'C261', 'H8': 'HG61', 'C10': 'C261', 'C11': 'C321', 'H9': 'HGA2', 'C12': 'C324', 'H10': 'HGA2'}
+    labeled_match_atoms = assign_MATCH_label(hydrogen_map)
+    # labeled_match_atoms = {'O1': 'O301', 'N1': 'N3P3', 'H1': 'HGP2', 'C1': 'C261', 'C2': 'C261', 'H2': 'HG61', 'C3': 'C261', 'H3': 'HG61', 'C4': 'C261', 'H4': 'HG61', 'C5': 'C261', 'C6': 'C261', 'H5': 'HG61', 'C7': 'C261', 'H6': 'HG61', 'C8': 'C261', 'H7': 'HG61', 'C9': 'C261', 'H8': 'HG61', 'C10': 'C261', 'C11': 'C321', 'H9': 'HGA2', 'C12': 'C324', 'H10': 'HGA2'}
     
     bonds = get_bonds(mol, hydrogen_map)
     angles = get_angles(mol, hydrogen_map)
